@@ -12,10 +12,15 @@ clearly as “HIGHEST DIFFICULTY”.
 
 
 Challenge Name: Obedient Cat
+
 Category: General Skills
+
 Point Value: 5
+
 Challenger: Destry
+
 Challenge Description: You are given a file and you need to find the flag.
+
 Steps Taken:
     - I opened the file in the webshell and found the flag in plaintext. 
     - Copied and validated.
@@ -26,10 +31,15 @@ Steps Taken:
 
 
 Challenge Name: Cookies
+
 Category: Web Exploitation
+
 Point Value: 40
+
 Challenger: Destry
+
 Challenge Description: The link to a website is given and somehow you are meant to figure out the best "cookie". Presumably this has something to do with getting the flag.
+
 Steps Taken:
     - Opened up the inspect console and poked around, found a tab for cookies, but there's only one called "name" and it's not telling me anything useful.
     - Tried using website as intended to see what would happen. Things that aren't cookies provoke a "that's not a valid cookie response". "Chocolate Chip" and "Peanut Butter" change the value of the aformentioned web cookie. "Chocolate Chip" makes it 1, and "Peanut Butter" makes it 5.
@@ -41,11 +51,17 @@ Steps Taken:
 ********************************************
 
 
+
 Challenge Name: Some Assembly Required 1
+
 Category: Web Exploitation
+
 Point Value: 70
+
 Challenger: Destry
+
 Challenge Description: There is a link to a webpage with a input that claims to be able to check if you have the correct flag.
+
 Steps Taken:
     - Given the name, I opened inspect to see if I could find a webassembly script or something, there was in fact a js page that looked an awful lot like assembly.
     - I copied the code into a text editor and tried to make heads or tails of it, but I wasn't getting anywhere quickly.
@@ -78,10 +94,15 @@ Steps Taken:
 
 
 Challenge Name: Pixelated
+
 Category: Cryptography
+
 Point Value: 100
+
 Challenger: Destry
+
 Challenge Description: Two images are given. Somehow you are supposed to get a flag from them.
+
 Steps Taken:
     - Downloaded both to my local device. Opened them both with a text editor and did a quick search for 'picoctf' but nothing came up.
     - opened them both with Gimp and tried various thing like stacking them and merging them, or stacking them and making them semitransparent, rotating them and merging them. Nothing worked.

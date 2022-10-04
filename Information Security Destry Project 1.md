@@ -116,85 +116,113 @@ Steps Taken:
 ********************************************
 
 
-Challenge Name:
-Category:
-Point Value:
+Challenge Name: what's a netcat?
+Category: General Skills
+Point Value: 100
 Challenger: Destry
-Challenge Description:
+Challenge Description: I was given a website address and a port number and told that in order to get the flag I would have to connect to the website at the port number.
 Steps Taken:
-    -
-    -
-    -
+    - Looked up netcat online, description was pretty hard to make out but I got that the command started with "nc".
+    - Looked up "nc" using "man" and read a bit more about it
+    - Ran "nc jupiter.challenges.picoctf.org 41120" in the terminal and the server responded with the flag
 
 
 ********************************************
 
 
-Challenge Name:
-Category:
-Point Value:
+Challenge Name: Nice netcat...
+Category: General Skills
+Point Value: 15
 Challenger: Destry
-Challenge Description:
+Challenge Description: The command $ nc mercury.picoctf.net 21135 returns seemingly random numbers that have something to do with the flag.
 Steps Taken:
-    -
-    -
-    -
+    - I ran the command and had a look, random numbers as expected, looks like ascii values
+    - Redid the command, but set it to dump to a new file called "char.txt"
+    - Created a simple python program as follows
+    
+f = open("char.txt","r")
+s = f.read().split("\n")
+for x in s:
+        print(chr(int(x)))
+     
+     
+     - Had to manually remove some spaces, but otherwise the flag worked
 
 
 ********************************************
 
 
-Challenge Name:
-Category:
-Point Value:
+Challenge Name:Based
+Category: General Skills
+Point Value: 200
 Challenger: Destry
-Challenge Description:
+Challenge Description: You are given a netcat connnection and when you connect you get asked to translate a string of numbers into a word in a limited amount of time.
 Steps Taken:
-    -
-    -
-    -
+    - connected to the address listed in the description, first prompt is asking me to translate a number of 8 digit strings of ones and zeroes. I wasn't prepared to do that in the time limit, so i copied the numbers into notepad and translated them into base 10, looks like ascii values again: 
+    0110 0011 64 + 32 + 3   = 99 
+0110 1111 64 + 32 + 15  = 111
+0110 1101 64 + 32 + 8 + 4 + 1 = 109
+0111 0000 64 + 32 + 16 = 112
+0111 0101 64 + 32 + 16 + 4 + 1 = 117
+0111 0100 64 + 32 + 16 + 4 = 116
+0110 0101 64 + 32 + 4 + 1 = 101
+0111 0010	64 + 32 + 16 + 2 = 114
+    - looked up ascii values online and found a good reference chart to look at @ https://www.asciitable.com/
+    - I could translate them, but it still took a few tries to do it quick enough (the word changes every time, so knowing the previous word doesn't help)
+    - beat the first one, another prompt, same as with the binary numbers but the numbers are octal this time
+    - after a few more tries before beating both the binary and octal challenges consecutively next prompt is the same as the previous two, but with hex
+    - the main challenge was just reading the code fast enough, But after a few more tries I got all three challenges in a row and the server gave me the flag.
 
 
 ********************************************
 
 
-Challenge Name:
-Category:
-Point Value:
+Challenge Name: Lets Warm Up
+Category: General Skills
+Point Value: 50
 Challenger: Destry
-Challenge Description:
+Challenge Description: Description asks what a word would start with if the hexidecimal code started with 0x70.
 Steps Taken:
-    -
-    -
-    -
+    - Still had ascii chart up from previous challenge, chart said 'p'
+    - put the flag in as 'picoCTF{p}'
+    - just to see what would happen, it worked
 
 
 ********************************************
 
 
-Challenge Name:
-Category:
-Point Value:
+Challenge Name: Most Cookies
+Category: Web Exploitation
+Point Value:150
 Challenger: Destry
-Challenge Description:
+Challenge Description: You are given a link to a website and a link to the source code the server runs on. This challenge is very similar in looks to a previous challenge I did earlier called 'Cookies'.
 Steps Taken:
-    -
-    -
-    -
+    - looked at the server source code, I can read python but this is harder to decipher because I'm not used to programming python servers. I could tell they added more valid cookies though, and that the best cookie is picked at random, can't tell if it's randomized everytime or just per session.
+    - Tried every single cookie brute force style, nothing (there were only 28)
+    - opened inspect, there were three cookies; "_ga", "name", and "session".
+    - Changing "name" like in the 'Cookies' challenge doesn't seem to do anything
+    - "session" changes everytime, i figured maybe if I copied one of the sessions and pasted it in after the reset and tried brute forcing the cookie again, it wouldn't reset the random cookie and I would get it eventually, but that ultimately didn't work.
+    - looked at the python code again, looks like it just gives you the key if it detects the session id is "admin", tried changing the session cookie value to "admin". That didn't work either.
+    - looked up the solution. Found one by "cleibox" @ https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Most%20Cookies/MostCookies.md Apparently I was on the right track for the most part about tricking it into think I was the "admin" but i needed to do some complicated stuff with flask encrypting and I ran out of time.
+    - did not complete
 
 
 ********************************************
 
 
-Challenge Name:
-Category:
-Point Value:
+Challenge Name: Matryoshka doll
+Category: Forensics
+Point Value: 30
 Challenger: Destry
-Challenge Description:
+Challenge Description: You are given an image of a Matryoshka doll and have to find some way to get a flag from it.
 Steps Taken:
-    -
-    -
-    -
+    - Doenloaded the image gave it a look in windows photos, nothing out of the ordinary.
+    - Found an online metadata viewer @ https://www.metadata2go.com/ looked at the metadata for a while, nothing out of the ordinary except even though the file had the jpg extension the metadata viewer said it was png.
+    - Changed the extension name to png and opened it again in windows photos, nothing changed.
+    - looked at the image in notepad, searched for the word "pico" but also nothing.
+    - looked up the solution. Found one by 'ZeroDayTea' and 'Killer Queen' @ https://ctftime.org/writeup/28156
+    - The solution involved using binwalk to extract compressed files hidden in the image. You would extract the file, descend one level into the directory where there was another image with a file compressed inside of it. I repeated the process four times til i got to 'flag.txt'
+    - opened 'flag.txt'. The flag was in it.
 
 
 ********************************************

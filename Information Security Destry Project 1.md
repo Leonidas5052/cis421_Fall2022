@@ -644,138 +644,27 @@ The Goal of this problem is to take some code that is meant to help the person r
  
 **********************Hardest Difficulty**************************************************************
 
-Challenge Name:
+Challenge Name: Wizardlike
 
-Category:
+Category: Reverse Engineering
 
-Point Value:
+Point Value: 500
 
 Challenger: Destry
 
-Challenge Description:
+Challenge Description: You are given an .exe file that is a game, and somehow you are supposed to get the key out of it.
 
 Steps Taken:
 
-    -
+    - The first step was playing the game, it's a dungeon crawler with no platforming or enemies. The map progressively reveals as you move around, this seems to be based on some sightline system, where the game keeps a track of what your character sees from where he is. The full gamemap is broken into smaller map segments, you can only access about 4 of them normally.
     
-    -
+    - Threw it into a text editor, obviously the code is unintelligible (probably a compiled c program), but the maps are in strings of plaintext. They're not all immediately readable, I don't know if that's on purpose or accident but with a little resizing of the notepad window, and the use of wordwrapping, I can make out words and letters hidden in the map. 
     
-    -
 
-
-********************************************
-
-
-Challenge Name:
-
-Category:
-
-Point Value:
-
-Challenger: Destry
-
-Challenge Description:
-
-Steps Taken:
-    -
+    - I copied the maps into a seperate window and started trying to piece them together. I came up with flag  picoCTF{ur_4_w1z4rd8F4B04AE} 
     
-    -
+    - "picoCTF{", "ur_4_w1z4rd" ,"E}" all came pre combined,  "8F4B04A" each came from an individaul map segment so I infered the order by playing the game and noting which four maps appeared in which order. On playing through, it looked like the first map was the second map segment (first map segment looks like it's just a buffer, it's an entire map area filled with walls)  and the second map segment was the third segment and so forth, so I applied that ordering to the key.
     
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-
-
-
-
-
-
-
-
-
-
-
+    - It didn't work, either I got a character wrong (so I tried alternatives, like "O" instead of "0"), or I don't look closely enough (double checked the map, I didn't see anything I missed), or I got the ordering wrong. Brute forcing the combination would take too long, looks like I need to find a better solution.
+    
+    - looked online, "WhatTheFuzz" and "DD214" had a writeup @ https://ctftime.org/writeup/32801. Their solution was essentially the same as what I did, except they used "Ghidra" and some complicated stuff to extract the map, and used a python script to automate fixing and reading the map. I feel better that I did the correct solution with fewer tools, but still kind of salty because I don't know why my key doesn't work.

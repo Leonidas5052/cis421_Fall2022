@@ -1,15 +1,9 @@
+# Project 1
 
-1. Each group will complete a total of 10 challenges from the General Skills category.
-a. This must include an attempt at one problem > 100 points.
-2. Each group will complete two challenges from every other category (Web Exploitation,
-Cryptography, Reverse Engineering, Forensics, Binary Exploitation).
-a. For each category, one problem can be <100 points, while the second must be >= 100
-points.
-3. Each group will try ONE problem, from any category, that has less than 500 solves. Label this
-clearly as “HIGHEST DIFFICULTY”.
+We both worked on this project independently for a while before teaming up so some of the challenges are the same as each others.
 
 
-********************************************
+****************** General Skills **************************
 
 Challenge Name: Obedient Cat
 
@@ -28,118 +22,9 @@ Steps Taken:
     - Copied and validated.
     
     - Not much to say about this one.
-
-
-********************************************
-
-
-Challenge Name: Cookies
-
-Category: Web Exploitation
-
-Point Value: 40
-
-Challenger: Destry
-
-Challenge Description: The link to a website is given and somehow you are meant to figure out the best "cookie". Presumably this has something to do with getting the flag.
-
-Steps Taken:
-
-    - Opened up the inspect console and poked around, found a tab for cookies, but there's only one called "name" and it's not telling me anything useful.
     
-    - Tried using website as intended to see what would happen. Things that aren't cookies provoke a "that's not a valid cookie response". "Chocolate Chip" and "Peanut Butter" change the value of the aformentioned web cookie. "Chocolate Chip" makes it 1, and "Peanut Butter" makes it 5.
     
-    - Poked around in the inspect tab for a while. Not much progress.
     
-    - Searched online for help  found this page that gave the answer https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Cookies/Cookies.md
-    
-    - edited the value of the web cookie to 18 and the webpage displayed the flag.
-
-
-********************************************
-
-
-
-Challenge Name: Some Assembly Required 1
-
-Category: Web Exploitation
-
-Point Value: 70
-
-Challenger: Destry
-
-Challenge Description: There is a link to a webpage with a input that claims to be able to check if you have the correct flag.
-
-Steps Taken:
-    - Given the name, I opened inspect to see if I could find a webassembly script or something, there was in fact a js page that looked an awful lot like assembly.
-    
-    - I copied the code into a text editor and tried to make heads or tails of it, but I wasn't getting anywhere quickly.
-   
-    - Fortunately with a quick google search I found out I could enable webassembly support in google inspect and that allowed me to js format the code to make it more readable.
-    
-    - I spent a few hours trying to reverse engineer the code. I thought the flag was somehow encrypted in an array on the page 
-    
-    - in particular, I knew that this code: 
-    
-    const _0x478583 = -parseInt(_0x371ac6(0x1eb)) + parseInt(_0x371ac6(0x1ed)) + -parseInt(_0x371ac6(0x1db)) * -parseInt(_0x371ac6(0x1d9)) + -parseInt(_0x371ac6(0x1e2)) * -parseInt(_0x371ac6(0x1e3)) + -parseInt(_0x371ac6(0x1de)) * parseInt(_0x371ac6(0x1e0)) + parseInt(_0x371ac6(0x1d8)) * parseInt(_0x371ac6(0x1ea)) + -parseInt(_0x371ac6(0x1e5));
-
-    was being used to compare user input against what was in this array 
-
-    - const _0x402c = ['value', '2wfTpTR', 'instantiate', '275341bEPcme', 'innerHTML', '1195047NznhZg', '1qfevql', 'input', '1699808QuoWhA', 'Correct!', 'check_flag', 'Incorrect!', './JIFxzHyW8W', '23SMpAuA', '802698XOMSrr', 'charCodeAt', '474547vVoGDO', 'getElementById', 'instance', 'copy_char', '43591XxcWUl', '504454llVtzW', 'arrayBuffer', '2NIQmVj', 'result'];
-
-    
-    - I also knew that numbers like these _0x478583 were variables, and numbers like these 0x1eb were hex numbers in the high 400s. 
-    
-    -  this constant _0x371ac6 referenced a function that subtracted 470 from those big hex numbers, conveniently making all of them within the length of the array, and then returned the array item that the hex number corresponded to after the subtraction
-    
-    - using a web tool to simulate how parseInt() would work on the different strings, I came up with:
-    -       -504454 + 2 + -1195047 * -275341 + -nan * -23 + -1699808 * nan + nan * 43591 + -nan;
-    
-    - adding all that together doesn't work, it was all a dead end. So I looked online for help
-    
-    -  found this page explaining it https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Some_Assembly_Required_1.md
-    
-    -  what was described in that link was more than I had to do
-    
-    -  after you use an online deobfuscator you learn that the code sends the user input to another page for comparison.
-    
-    - by downloading the assembly code "script.wasm" at the link you can open it using less and the flag is at the bottom of the page
-    
-    - there was some other steps about converting the "script.wasm" into a .wat file to make it easier to read, but it doesn't do anything except make a blank file, and the flag is in "script.wasm" in plaintext anyways.
-
-
-
-
-********************************************
-
-
-Challenge Name: Pixelated
-
-Category: Cryptography
-
-Point Value: 100
-
-Challenger: Destry
-
-Challenge Description: Two images are given. Somehow you are supposed to get a flag from them.
-
-Steps Taken:
-
-    - Downloaded both to my local device. Opened them both with a text editor and did a quick search for 'picoctf' but nothing came up.
-    
-    - opened them both with Gimp and tried various thing like stacking them and merging them, or stacking them and making them semitransparent, rotating them and merging them. Nothing worked.
-    
-    - finally had to look up the solution on https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Pixelated.md
-    
-    - supposedly you are supposed to convert both images into arrays and add them together into a single image.
-    
-    - didn't matter anyways, I spent two hours trying to figure out how to open up images in the web shell and nothing was working so the solution isn't helping me.
-    
-    - opened the outputted combined images with less and i'm not even sure it's a valid png file when compared to the other two.
-    
-    - from this point forward I am going to have to implement a timer because im only 4 challenges deep, one of which I found out afterwards doesn't count towards my total, and Ive already spent nearly 15 hours on this project
-
-
 ********************************************
 
 
@@ -249,242 +134,6 @@ Steps Taken:
     
     - just to see what would happen, it worked
 
-
-********************************************
-
-
-Challenge Name: Most Cookies
-
-Category: Web Exploitation
-
-Point Value:150
-
-Challenger: Destry
-
-Challenge Description: You are given a link to a website and a link to the source code the server runs on. This challenge is very similar in looks to a previous challenge I did earlier called 'Cookies'.
-
-Steps Taken:
-
-    - looked at the server source code, I can read python but this is harder to decipher because I'm not used to programming python servers. I could tell they added more valid cookies though, and that the best cookie is picked at random, can't tell if it's randomized everytime or just per session.
-    
-    - Tried every single cookie brute force style, nothing (there were only 28)
-    
-    - opened inspect, there were three cookies; "_ga", "name", and "session".
-    
-    - Changing "name" like in the 'Cookies' challenge doesn't seem to do anything
-    
-    - "session" changes everytime, i figured maybe if I copied one of the sessions and pasted it in after the reset and tried brute forcing the cookie again, it wouldn't reset the random cookie and I would get it eventually, but that ultimately didn't work.
-    
-    - looked at the python code again, looks like it just gives you the key if it detects the session id is "admin", tried changing the session cookie value to "admin". That didn't work either.
-    
-    - looked up the solution. Found one by "cleibox" @ https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Most%20Cookies/MostCookies.md Apparently I was on the right track for the most part about tricking it into think I was the "admin" but i needed to do some complicated stuff with flask encrypting and I ran out of time.
-    
-    - did not complete
-
-
-********************************************
-
-
-Challenge Name: Matryoshka doll
-
-Category: Forensics
-
-Point Value: 30
-
-Challenger: Destry
-
-Challenge Description: You are given an image of a Matryoshka doll and have to find some way to get a flag from it.
-
-Steps Taken:
-
-    - Downloaded the image gave it a look in windows photos, nothing out of the ordinary.
-    
-    - Found an online metadata viewer @ https://www.metadata2go.com/ looked at the metadata for a while, nothing out of the ordinary except even though the file had the jpg extension the metadata viewer said it was png.
-    
-    - Changed the extension name to png and opened it again in windows photos, nothing changed.
-    
-    - looked at the image in notepad, searched for the word "pico" but also nothing.
-    
-    - looked up the solution. Found one by 'ZeroDayTea' and 'Killer Queen' @ https://ctftime.org/writeup/28156
-    
-    - The solution involved using binwalk to extract compressed files hidden in the image. You would extract the file, descend one level into the directory where there was another image with a file compressed inside of it. I repeated the process four times til i got to 'flag.txt'
-    
-    - opened 'flag.txt'. The flag was in it.
-
-
-********************************************
-
-
-Challenge Name:
-
-Category:
-
-Point Value:
-
-Challenger: Destry
-
-Challenge Description:
-
-Steps Taken:
-
-    -
-
-    -
-
-    -
-
-
-********************************************
-
-
-Challenge Name:
-
-Category:
-
-Point Value:
-
-Challenger: Destry
-
-Challenge Description:
-
-Steps Taken:
-
-    -
-    
-    -
-    
-    -
-
-
-********************************************
-
-
-Challenge Name:
-
-Category:
-
-Point Value:
-
-Challenger: Destry
-
-Challenge Description:
-
-Steps Taken:
-
-    -
-    
-    -
-    
-    -
-
-
-********************************************
-
-
-Challenge Name:
-
-Category:
-
-Point Value:
-
-Challenger: Destry
-
-Challenge Description:
-
-Steps Taken:
-    -
-    
-    -
-    
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-********************************************
-
-
-Challenge Name:
-Category:
-Point Value:
-Challenger: Destry
-Challenge Description:
-Steps Taken:
-    -
-    -
-    -
-
-
-
-# Project 1
 
 ## General Skills
 
@@ -654,6 +303,9 @@ The goal is to take a very long list of possible passwords and do one of two thi
 7. Based on the hint I changed the pw_check function to open the password file, and input line by line, after removing whitespace, the different passwords until it gave the right one.  It only gave an output when it had the right password.  I still don't know what the password is, but I had the key. 100 points gathered!
 
 
+
+******************* Web Exploitation *************************
+
 ## Web Exploitation
 
 ## Problem 11 Scavenger Hunt (50 Points)
@@ -689,7 +341,115 @@ The goal of this is to look at a website and see if you can exploit it to get th
 
 3. I tried the username and password on the website, misspelled it once, then got it the second time by copy pasting it. Got the key and an easy 100 points!  Spending a semester working on a website really does teach you where vulnerabilities might be.
 
+***********************************
 
+Challenge Name: Cookies
+
+Category: Web Exploitation
+
+Point Value: 40
+
+Challenger: Destry
+
+Challenge Description: The link to a website is given and somehow you are meant to figure out the best "cookie". Presumably this has something to do with getting the flag.
+
+Steps Taken:
+
+    - Opened up the inspect console and poked around, found a tab for cookies, but there's only one called "name" and it's not telling me anything useful.
+    
+    - Tried using website as intended to see what would happen. Things that aren't cookies provoke a "that's not a valid cookie response". "Chocolate Chip" and "Peanut Butter" change the value of the aformentioned web cookie. "Chocolate Chip" makes it 1, and "Peanut Butter" makes it 5.
+    
+    - Poked around in the inspect tab for a while. Not much progress.
+    
+    - Searched online for help  found this page that gave the answer https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Cookies/Cookies.md
+    
+    - edited the value of the web cookie to 18 and the webpage displayed the flag.
+
+
+********************************************
+
+
+
+Challenge Name: Some Assembly Required 1
+
+Category: Web Exploitation
+
+Point Value: 70
+
+Challenger: Destry
+
+Challenge Description: There is a link to a webpage with a input that claims to be able to check if you have the correct flag.
+
+Steps Taken:
+    - Given the name, I opened inspect to see if I could find a webassembly script or something, there was in fact a js page that looked an awful lot like assembly.
+    
+    - I copied the code into a text editor and tried to make heads or tails of it, but I wasn't getting anywhere quickly.
+   
+    - Fortunately with a quick google search I found out I could enable webassembly support in google inspect and that allowed me to js format the code to make it more readable.
+    
+    - I spent a few hours trying to reverse engineer the code. I thought the flag was somehow encrypted in an array on the page 
+    
+    - in particular, I knew that this code: 
+    
+    const _0x478583 = -parseInt(_0x371ac6(0x1eb)) + parseInt(_0x371ac6(0x1ed)) + -parseInt(_0x371ac6(0x1db)) * -parseInt(_0x371ac6(0x1d9)) + -parseInt(_0x371ac6(0x1e2)) * -parseInt(_0x371ac6(0x1e3)) + -parseInt(_0x371ac6(0x1de)) * parseInt(_0x371ac6(0x1e0)) + parseInt(_0x371ac6(0x1d8)) * parseInt(_0x371ac6(0x1ea)) + -parseInt(_0x371ac6(0x1e5));
+
+    was being used to compare user input against what was in this array 
+
+    - const _0x402c = ['value', '2wfTpTR', 'instantiate', '275341bEPcme', 'innerHTML', '1195047NznhZg', '1qfevql', 'input', '1699808QuoWhA', 'Correct!', 'check_flag', 'Incorrect!', './JIFxzHyW8W', '23SMpAuA', '802698XOMSrr', 'charCodeAt', '474547vVoGDO', 'getElementById', 'instance', 'copy_char', '43591XxcWUl', '504454llVtzW', 'arrayBuffer', '2NIQmVj', 'result'];
+
+    
+    - I also knew that numbers like these _0x478583 were variables, and numbers like these 0x1eb were hex numbers in the high 400s. 
+    
+    -  this constant _0x371ac6 referenced a function that subtracted 470 from those big hex numbers, conveniently making all of them within the length of the array, and then returned the array item that the hex number corresponded to after the subtraction
+    
+    - using a web tool to simulate how parseInt() would work on the different strings, I came up with:
+    -       -504454 + 2 + -1195047 * -275341 + -nan * -23 + -1699808 * nan + nan * 43591 + -nan;
+    
+    - adding all that together doesn't work, it was all a dead end. So I looked online for help
+    
+    -  found this page explaining it https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Some_Assembly_Required_1.md
+    
+    -  what was described in that link was more than I had to do
+    
+    -  after you use an online deobfuscator you learn that the code sends the user input to another page for comparison.
+    
+    - by downloading the assembly code "script.wasm" at the link you can open it using less and the flag is at the bottom of the page
+    
+    - there was some other steps about converting the "script.wasm" into a .wat file to make it easier to read, but it doesn't do anything except make a blank file, and the flag is in "script.wasm" in plaintext anyways.
+
+
+********************************************
+
+
+Challenge Name: Most Cookies
+
+Category: Web Exploitation
+
+Point Value:150
+
+Challenger: Destry
+
+Challenge Description: You are given a link to a website and a link to the source code the server runs on. This challenge is very similar in looks to a previous challenge I did earlier called 'Cookies'.
+
+Steps Taken:
+
+    - looked at the server source code, I can read python but this is harder to decipher because I'm not used to programming python servers. I could tell they added more valid cookies though, and that the best cookie is picked at random, can't tell if it's randomized everytime or just per session.
+    
+    - Tried every single cookie brute force style, nothing (there were only 28)
+    
+    - opened inspect, there were three cookies; "_ga", "name", and "session".
+    
+    - Changing "name" like in the 'Cookies' challenge doesn't seem to do anything
+    
+    - "session" changes everytime, i figured maybe if I copied one of the sessions and pasted it in after the reset and tried brute forcing the cookie again, it wouldn't reset the random cookie and I would get it eventually, but that ultimately didn't work.
+    
+    - looked at the python code again, looks like it just gives you the key if it detects the session id is "admin", tried changing the session cookie value to "admin". That didn't work either.
+    
+    - looked up the solution. Found one by "cleibox" @ https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Most%20Cookies/MostCookies.md Apparently I was on the right track for the most part about tricking it into think I was the "admin" but i needed to do some complicated stuff with flask encrypting and I ran out of time.
+    
+    - did not complete
+
+****************** Cryptography **************************
 ## Cryptopgraphy
 ## Problem 13 The Numbers (50 Points)
 
@@ -712,6 +472,149 @@ You are given a key and the encrypted flag and have to decrypt the flag.
 2. I downloaded the table and look through it to see what is on it, and I have a pretty good idea of what is expected to be done.
 
 3. The next step is to start comparing the key to the garbled mess of letters that we are given, except I decide instead to go to the first website I find when I google, decrypt one time pad, go to this url: https://www.boxentriq.com/code-breaking/one-time-pad, enter the key and the encoded phrase and get the key.  Easy 100 points.
+
+****************************************************
+
+Challenge Name: Pixelated
+
+Category: Cryptography
+
+Point Value: 100
+
+Challenger: Destry
+
+Challenge Description: Two images are given. Somehow you are supposed to get a flag from them.
+
+Steps Taken:
+
+    - Downloaded both to my local device. Opened them both with a text editor and did a quick search for 'picoctf' but nothing came up.
+    
+    - opened them both with Gimp and tried various thing like stacking them and merging them, or stacking them and making them semitransparent, rotating them and merging them. Nothing worked.
+    
+    - finally had to look up the solution on https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Pixelated.md
+    
+    - supposedly you are supposed to convert both images into arrays and add them together into a single image.
+    
+    - didn't matter anyways, I spent two hours trying to figure out how to open up images in the web shell and nothing was working so the solution isn't helping me.
+    
+    - opened the outputted combined images with less and i'm not even sure it's a valid png file when compared to the other two.
+    
+    - from this point forward I am going to have to implement a timer because im only 4 challenges deep, one of which I found out afterwards doesn't count towards my total, and Ive already spent nearly 15 hours on this project
+
+
+
+
+
+**************** Forensics ****************************
+
+## Forensics
+
+## Problem 17 Packets Primer (100 Points)
+
+The goal is to look at a group of packets that are given to you and find the key inside of those packets.
+
+### Steps Taken
+1. It said that downloading wireshark is a good way to examine packets in the hint so I downloaded wireshark.
+
+2. I opened the download with wireshark and started to snoop around.  I had very little ideas of what I was looking for.  There were some phrases that I could see that were kinda telling me to look at specific packets.
+
+3. After looking around the packets I found the flag hidden in a set of bytes translated for me to look at and found a key.  100 points acquired.
+
+## Problem 18 So Meta (150 points)
+
+I was given an image and have to find the key hidden in the image somewhere.  The image is a bunch of half circles and circles.
+
+### Steps Taken
+1. I watch too many fnaf theory videos.  The first step that I decided to do for the image was turn it into a text file.  I used control-f to search for pico and at the end of the new text file, I found the key.  Easy 150 points.
+
+*****************************************
+Challenge Name: Matryoshka doll
+
+Category: Forensics
+
+Point Value: 30
+
+Challenger: Destry
+
+Challenge Description: You are given an image of a Matryoshka doll and have to find some way to get a flag from it.
+
+Steps Taken:
+
+    - Downloaded the image gave it a look in windows photos, nothing out of the ordinary.
+    
+    - Found an online metadata viewer @ https://www.metadata2go.com/ looked at the metadata for a while, nothing out of the ordinary except even though the file had the jpg extension the metadata viewer said it was png.
+    
+    - Changed the extension name to png and opened it again in windows photos, nothing changed.
+    
+    - looked at the image in notepad, searched for the word "pico" but also nothing.
+    
+    - looked up the solution. Found one by 'ZeroDayTea' and 'Killer Queen' @ https://ctftime.org/writeup/28156
+    
+    - The solution involved using binwalk to extract compressed files hidden in the image. You would extract the file, descend one level into the directory where there was another image with a file compressed inside of it. I repeated the process four times til i got to 'flag.txt'
+    
+    - opened 'flag.txt'. The flag was in it.
+
+
+******************** Binary Exploitation ************************
+
+
+Challenge Name: Stonks
+
+Category: Binary Exploitation
+
+Point Value: 20
+
+Challenger: Destry
+
+Challenge Description: You are given a server to connect to with nc and a download for C code and told to exploit it somehow to get the flag.
+
+Steps Taken:
+
+    - Looked at the code first, looked like there is a file on the server with the key that gets read into memory when the program is loaded up.
+
+    - Opened a connection with the webserver, first prompt asks if you want to buy stocks, or look at your stocks, i chose to look at my stocks. I had none, and the program ended.
+
+    - Tried buying stocks, no matter what you input it just spits out a ton of random stocks and ends the program. There is no account memory, so nothing I do carries over to the next session.
+    - user buffer is 301 memory addresses long, tried sending it +300 characters. Same output as usual, it just ignores everything past the first 301 characters.
+    - Looked up a write up. Found one by " Abraxus" and  "kernelarmy" @ https://ctftime.org/writeup/28935
+    - They used a script to do it, but what I ended up doing was sending a ton of "%x" and it dumped the memory as hex code
+    - threw the hex code into an online decoder @ https://onlinestringtools.com/convert-hexadecimal-to-string
+    - had to manually remove some of the useless values and invert the characters in the flag, but otherwise the flag worked.
+
+
+********************************************
+
+
+Challenge Name: basic-file-exploit
+
+Category: Binary Exploitation
+
+Point Value: 100
+
+Challenger: Destry
+
+Challenge Description: Given the source code of a file with the flag redacted, and a netcat connection, exploit it to gain the flag.
+
+Steps Taken:
+
+    - looked at the source code first, searched for "flag"
+    
+    - found a section of code that essentially said if the user entered a "0" under certain circumstances the program would return the flag.
+    
+    - if ((entry_number = strtol(entry, NULL, 10)) == 0) {
+    puts(flag);
+    fseek(stdin, 0, SEEK_END);
+    exit(0);
+  }
+    
+    - Played with program a bit, you can enter data into a database, read data out of the database, or exit the program.
+    
+    - Entering data doesn't allow you to use 0 except in a string to be saved.
+    
+    - Tried to read entry "0" in the program and I got the flag.
+
+
+*********************Reverse Engineering ***********************
 
 ## Reverse Engineering
 
@@ -737,24 +640,142 @@ The Goal of this problem is to take some code that is meant to help the person r
 2. In the source code I found an encrypted key in 64 bit.  I do not really know why it would be in 64 bit, but I copied it down and saved it for later.  I later found that it will take your entered password, encrypt it and check if it works the way it should.
 
 3. I decided to decode the encrypted key with a Base64 decoder.  I used this website: https://www.base64decode.org/ and got the correct key.  I checked it with the program, it worked and I submitted it as a key.
+ 
+ 
+**********************Hardest Difficulty**************************************************************
+
+Challenge Name:
+
+Category:
+
+Point Value:
+
+Challenger: Destry
+
+Challenge Description:
+
+Steps Taken:
+
+    -
+    
+    -
+    
+    -
 
 
-## Forensics
+********************************************
 
-## Problem 17 Packets Primer (100 Points)
 
-The goal is to look at a group of packets that are given to you and find the key inside of those packets.
+Challenge Name:
 
-### Steps Taken
-1. It said that downloading wireshark is a good way to examine packets in the hint so I downloaded wireshark.
+Category:
 
-2. I opened the download with wireshark and started to snoop around.  I had very little ideas of what I was looking for.  There were some phrases that I could see that were kinda telling me to look at specific packets.
+Point Value:
 
-3. After looking around the packets I found the flag hidden in a set of bytes translated for me to look at and found a key.  100 points acquired.
+Challenger: Destry
 
-## Problem 18 So Meta (150 points)
+Challenge Description:
 
-I was given an image and have to find the key hidden in the image somewhere.  The image is a bunch of half circles and circles.
+Steps Taken:
+    -
+    
+    -
+    
+    -
 
-### Steps Taken
-1. I watch too many fnaf theory videos.  The first step that I decided to do for the image was turn it into a text file.  I used control-f to search for pico and at the end of the new text file, I found the key.  Easy 150 points.
+
+********************************************
+
+
+Challenge Name:
+Category:
+Point Value:
+Challenger: Destry
+Challenge Description:
+Steps Taken:
+    -
+    -
+    -
+
+
+********************************************
+
+
+Challenge Name:
+Category:
+Point Value:
+Challenger: Destry
+Challenge Description:
+Steps Taken:
+    -
+    -
+    -
+
+
+********************************************
+
+
+Challenge Name:
+Category:
+Point Value:
+Challenger: Destry
+Challenge Description:
+Steps Taken:
+    -
+    -
+    -
+
+
+********************************************
+
+
+Challenge Name:
+Category:
+Point Value:
+Challenger: Destry
+Challenge Description:
+Steps Taken:
+    -
+    -
+    -
+
+
+********************************************
+
+
+Challenge Name:
+Category:
+Point Value:
+Challenger: Destry
+Challenge Description:
+Steps Taken:
+    -
+    -
+    -
+
+
+********************************************
+
+
+Challenge Name:
+Category:
+Point Value:
+Challenger: Destry
+Challenge Description:
+Steps Taken:
+    -
+    -
+    -
+
+
+
+
+
+
+
+
+
+
+
+
+

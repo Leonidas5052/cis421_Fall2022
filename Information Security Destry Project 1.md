@@ -1,99 +1,87 @@
-# Project 1
+# Project 1 By Ethan Kang and Destry Krepps
 
-We both worked on this project independently for a while before teaming up so some of the challenges are the same as each others.
-
-
-****************** General Skills **************************
-
-Challenge Name: Obedient Cat
-
-Category: General Skills
-
-Point Value: 5
-
-Challenger: Destry
-
-Challenge Description: You are given a file and you need to find the flag.
-
-Steps Taken:
-
-    - I opened the file in the webshell and found the flag in plaintext. 
-    
-    - Copied and validated.
-    
-    - Not much to say about this one.
-    
-    
-    
-********************************************
+We both worked on this project independently for a while before teaming up so we did more challenges than we needed to do. The challenges in this file are only those we needed to complete the project. Challenges that didn't make the cut are in a "bonus.md" in this repository.
 
 
-Challenge Name: what's a netcat?
+# General Skills
 
-Category: General Skills
+## Problem #1
 
-Point Value: 100
+#### Challenge Name: what's a netcat?
 
-Challenger: Destry
+#### Category: General Skills
 
-Challenge Description: I was given a website address and a port number and told that in order to get the flag I would have to connect to the website at the port number.
+#### Point Value: 100
 
-Steps Taken:
+#### Challenger: Destry
 
-    - Looked up netcat online, description was pretty hard to make out but I got that the command started with "nc".
-    
-    - Looked up "nc" using "man" and read a bit more about it
-    
-    - Ran "nc jupiter.challenges.picoctf.org 41120" in the terminal and the server responded with the flag
+#### Challenge Description: 
+I was given a website address and a port number and told that in order to get the flag I would have to connect to the website at the port number.
+
+#### Steps Taken:
+
+1. Looked up netcat online, description was pretty hard to make out but I got that the command started with "nc"
+
+2. Looked up "nc" using "man" and read a bit more about it
+
+3. Ran "nc jupiter.challenges.picoctf.org 41120" in the terminal and the server responded with the flag
 
 
 ********************************************
 
+## Problem #2
 
-Challenge Name: Nice netcat...
+#### Challenge Name: Nice netcat...
 
-Category: General Skills
+#### Category: General Skills
 
-Point Value: 15
+#### Point Value: 15
 
-Challenger: Destry
+#### Challenger: Destry
 
-Challenge Description: The command $ nc mercury.picoctf.net 21135 returns seemingly random numbers that have something to do with the flag.
+#### Challenge Description: 
+The command $ nc mercury.picoctf.net 21135 returns seemingly random numbers that have something to do with the flag.
 
-Steps Taken:
+#### Steps Taken:
 
-    - I ran the command and had a look, random numbers as expected, looks like ascii values
+1. I ran the command and had a look, random numbers as expected, looks like ascii values
     
-    - Redid the command, but set it to dump to a new file called "char.txt"
+2. Redid the command, but set it to dump to a new file called "char.txt"
     
-    - Created a simple python program as follows
+3. Created a simple python program as follows:
+```
     
 f = open("char.txt","r")
 s = f.read().split("\n")
 for x in s:
-        print(chr(int(x)))
+       print(chr(int(x)))
+```
      
-     
-     - Had to manually remove some spaces, but otherwise the flag worked
+4. Had to manually remove some spaces, but otherwise the flag worked
 
 
 ********************************************
 
+## Problem #3
 
-Challenge Name:Based
+#### Challenge Name:Based
 
-Category: General Skills
+#### Category: General Skills
 
-Point Value: 200
+#### Point Value: 200
 
-Challenger: Destry
+#### Challenger: Destry
 
-Challenge Description: You are given a netcat connnection and when you connect you get asked to translate a string of numbers into a word in a limited amount of time.
+#### Challenge Description: 
+You are given a netcat connnection and when you connect you get asked to translate a string of numbers into a word in a limited amount of time.
 
-Steps Taken:
+#### Steps Taken:
 
-    - connected to the address listed in the description, first prompt is asking me to translate a number of 8 digit strings of ones and zeroes. I wasn't prepared to do that in the time limit, so i copied the numbers into notepad and translated them into base 10, looks like ascii values again: 
-    0110 0011 64 + 32 + 3   = 99 
+1. connected to the address listed in the description, first prompt is asking me to translate a number of 8 digit strings of ones and zeroes. I wasn't prepared to do that in the time limit, so i copied the numbers into notepad and translated them into base 10, looks like ascii values again: 
+
+```
+
+0110 0011 64 + 32 + 3   = 99 
 0110 1111 64 + 32 + 15  = 111
 0110 1101 64 + 32 + 8 + 4 + 1 = 109
 0111 0000 64 + 32 + 16 = 112
@@ -102,62 +90,35 @@ Steps Taken:
 0110 0101 64 + 32 + 4 + 1 = 101
 0111 0010	64 + 32 + 16 + 2 = 114
 
-    - looked up ascii values online and found a good reference chart to look at @ https://www.asciitable.com/
-    
-    - I could translate them, but it still took a few tries to do it quick enough (the word changes every time, so knowing the previous word doesn't help)
-    
-    - beat the first one, another prompt, same as with the binary numbers but the numbers are octal this time
-    
-    - after a few more tries before beating both the binary and octal challenges consecutively next prompt is the same as the previous two, but with hex
-    
-    - the main challenge was just reading the code fast enough, But after a few more tries I got all three challenges in a row and the server gave me the flag.
+```
 
+2. Looked up ascii values online and found a good reference chart to look at @ https://www.asciitable.com/
+    
+3. I could translate them, but it still took a few tries to do it quick enough (the word changes every time, so knowing the previous word doesn't help)
+    
+4. Beat the first one, another prompt, same as with the binary numbers but the numbers are octal this time
+    
+5. After a few more tries before beating both the binary and octal challenges consecutively next prompt is the same as the previous two, but with hex
+    
+6. The main challenge was just reading the code fast enough, But after a few more tries I got all three challenges in a row and the server gave me the flag.
 
 ********************************************
 
+## Problem #4
 
-Challenge Name: Lets Warm Up
+#### Challenge Name: Majikarp Ground Mission
 
-Category: General Skills
+#### Category: General Skills
 
-Point Value: 50
+#### Point Value: 30
 
-Challenger: Destry
+#### Challenger: Ethan
 
-Challenge Description: Description asks what a word would start with if the hexidecimal code started with 0x70.
-
-Steps Taken:
-
-    - Still had ascii chart up from previous challenge, chart said 'p'
-    
-    - put the flag in as 'picoCTF{p}'
-    
-    - just to see what would happen, it worked
-
-
-## General Skills
-
-
-
-
-Problems 19 and 20 are binary explotation
-
-## Problem 1 What is a Net Cat (100 Points)
-
-The goal of this project is to understand how the nc (NetCat) Command works.  You are given an ip and a port and use those with the nc command to get the key.
-
-### Steps taken
-1. Look up the address given in the problem.  It gave a download for the code of a webpage.  The code had nothing of note.
-
-2. Look up what NetCat was.  It is a way to access ip addresses from through specific ports if you know what they are.
-
-3. Try the command.  It worked.  I got a key and gained 100 points!
-
-## Problem 2 Majikarp Ground Mission (30 points)
-
+#### Challenge Description: 
 The goal of this project is to use Linux commands to move between the directories to look for a key in the directories.
 
-### Steps Taken
+#### Steps Taken:
+
 1. I attempted to log into the ctf-player instance.  I first did it through the initial login space.
 
 2. I then looked up a guide online to see what it was that I was not doing right, then saw that they used the ssh command to log in.  Oops...
@@ -169,23 +130,23 @@ The goal of this project is to use Linux commands to move between the directorie
 5. I opened an instruction file which said to use the bash command.  After using it, I noticed that I was able to move back through the directories to get to the root as they call it.  But first I moved using cd .. and saw number 3of3.  I opened it and copied it down.  Now to find 2of3.
 
 6. I continued to use cd.. until I hit 2of3 like 5 directories later.  At this point I was able to open and copy the last part of the key and submit it.  30 more points.
+********************************************
 
-## Problem 3 Wave a Flag (10 Points)
+## Problem #5
 
-The goal of this project is to learn to invoke help tools using the command -h
+#### Challenge Name: Tab Tab Attack
 
-### Steps taken
-1. I looked through the hints to see if there was a way to get some help, and hint 2 gave me a download link to get the file on the webshell.
+#### Category: General Skills
 
-2. After signing into the webshell, I used wget to get the file on my webshell and then ran the file using a ./
+#### Point Value: 20
 
-3. It then said to use a -h to invoke some help.  This gave me the key and I scored another 10 points!
+#### Challenger: Ethan
 
-## Problem 4 Tab Tab Attack (20 Points)
-
+#### Challenge Description: 
 The Goal of this project was to learn how easy Tabing would make our lives when attempting to move through directories really quickly
 
-### Steps taken
+#### Steps taken
+
 1. I looked at the hints to see if there was a wget link that I could use.  I really needed to figure out how to find those sooner.  That was half the struggle for this project.  
 
 2. There was a link though so I downloaded the zip file onto my own laptop and attempted to make use of it.  I unzipped the file and tabbed through it to learn that the file was an executable only usable on a Linux machine.  Curse my Windows laptop.
@@ -200,11 +161,23 @@ The Goal of this project was to learn how easy Tabing would make our lives when 
 
 7. Run the executable and *ZAP!*.  20 points.
 
-## Problem 5 Lets Warm Up (50 Points)
+********************************************
 
+## Problem #6
+
+#### Challenge Name: Lets Warm Up
+
+#### Category: General Skills
+
+#### Point Value: 50
+
+#### Challenger: Ethan
+
+#### Challenge Description: 
 The goal is to be able to convert hex to ascii.  I learned that I do not know how to do this.
 
-### Steps Taken
+#### Steps Taken:
+
 1. I had a hex code. 0x70.  Now I needed to change it to what it represented.
 
 2. I looked it up and got p so I entered, "picoCTF(p)"...  I was so confused when it was wrong.
@@ -215,11 +188,23 @@ The goal is to be able to convert hex to ascii.  I learned that I do not know ho
 
 5. I then figued out what I did wrong and entered the right flag... 50 points.
 
-## Problem 6 Serpentine (100 Points)
+********************************************
 
+## Problem #7
+
+#### Challenge Name: Serpentine
+
+#### Category: General Skills
+
+#### Point Value: 100
+
+#### Challenger: Ethan
+
+#### Challenge Description:
 The Goal is to run a python program that will give you the flag when the program properly runs.  However the program is slightly broken and you have to edit the program to fix it.
 
-## Steps Taken
+#### Steps Taken:
+
 1. This was a really easy challenge since I have a lot more experience in Python than most any other programming language. My first step was to download the program and run it.
 
 2. I saw three options to more onwards so I tried the get flag option.  It then said that the source code was broken and that I had to fix it.
@@ -232,24 +217,23 @@ The Goal is to run a python program that will give you the flag when the program
 
 6. After fixing the code, I found the flag by running the program again.  Then with flag in hand on the road more traveled, I earned 100 points.  Easy.
 
-## Problem 7 PW Crack 3 (100 Points)
+********************************************
 
-The goal is to find the password to unencrypt a file through the use of some snooping around.
+## Problem #8
 
-### Steps Taken
-1. The first step was to download all the files.  Right-click, copy link address.  Done.
+#### Challenge Name: convertme.py
 
-2. Then I opened the python program, since the problem mentioned that the passwords would be placed somewhere in there.
+#### Category: General Skills
 
-3. There was a cheeky message saying that the password would not be found in the program, but I scrolled down anyways and found some passwords to try.
+#### Point Value: 100
 
-4. I copied the passwords down and tried them one at a time until the fourth password worked.  I got the key and 100 points!
+#### Challenger: Ethan
 
-## Problem 8 convertme.py (100 Points)
-
+#### Challenge Description:
 The goal was to run a program and enter the correct conversion of decimal to binary to get the flag.
 
-### Steps Taken
+#### Steps Taken:
+
 1. I downloaded the code using the right-click, copy link address method.
 
 2. I then ran the program and found out that the number that I would need to convert was 99.
@@ -258,11 +242,23 @@ The goal was to run a program and enter the correct conversion of decimal to bin
 
 4. The conversion equalled 1100011.  I entered that, got the flag, and another 100 points!
 
-## Problem 9 flag_shop (300 Points)
+********************************************
 
+## Problem #9
+
+#### Challenge Name: flag_shop
+
+#### Category: General Skills
+
+#### Point Value: 300
+
+#### Challenger: Ethan
+
+#### Challenge Description:
 The goal is to go shopping at a flag store.  I don't really know what that means, but if the store asks for my credit card number, I'm leaving.
 
-### Steps Taken
+#### Steps Taken:
+
 1. So the shop kinda scams you.  The flag cost $1000000 and you only have $1100 to work with.  I also know very little about the C language except the little bit that we have gone over in our arduino class.  This will be tough.
 
 2. The first thing I did was less the c code that they gave so that you could look at the source code without being able to edit it as a cheap solution.  The actual code with the flag is on a server.  Running the code not on the server will not net you a flag, but is a great spot to test things out.
@@ -283,11 +279,23 @@ The goal is to go shopping at a flag store.  I don't really know what that means
 
 10. I then used the funds that I acquired legally, and not by hacking, to purhcase the correct flag at the store.  300 points!!! Easy.
 
-## Problem 10 PW Crack 5 (100 Points) 
+********************************************
 
+## Problem #10
+
+#### Challenge Name: PW Crack 5
+
+#### Category: General Skills
+
+#### Point Value: 100
+
+#### Challenger: Ethan
+
+#### Challenge Description:
 The goal is to take a very long list of possible passwords and do one of two things.  Sit there for an entire year until you guess the right password, or you use Linux commands to get the password.
 
-### Steps Taken
+### Steps Taken:
+
 1. The first thing I did was right-click, copy link address, wget the files.
 
 2. I read through the source code of the password checker to see how they determined if you gave the right password.  Turns out there is a two-step process to check for the password.  The First is a simple if statement.  The second is the fact that the decrypter requires the password as part of the decryption.  No cheating the system by changing the code, unless I'm just that good, which I'm not.
@@ -303,16 +311,24 @@ The goal is to take a very long list of possible passwords and do one of two thi
 7. Based on the hint I changed the pw_check function to open the password file, and input line by line, after removing whitespace, the different passwords until it gave the right one.  It only gave an output when it had the right password.  I still don't know what the password is, but I had the key. 100 points gathered!
 
 
+# Web Exploitation
 
-******************* Web Exploitation *************************
+## Problem #11
 
-## Web Exploitation
+#### Challenge Name: Scavenger Hunt
 
-## Problem 11 Scavenger Hunt (50 Points)
+#### Category: Web Exploitation
+
+#### Point Value: 50
+
+#### Challenger: Ethan
+
+#### Challenge Description: 
 
 The goal of this problem is to be able to look around a website and try to look around and find the key for the website.
 
-### Steps Taken
+### Steps Taken:
+
 1. The first thing that I looked at was the source code.  It is split into three files.  The first is an html file which hosts the main bulk of the website code.  The second is some javascript which has some formatting in it.  The third is some css which makes the website look nice.
 
 2. The first part of the key is found in the html section.  I copied and pasted that into the answer section.
@@ -331,6 +347,8 @@ The goal of this problem is to be able to look around a website and try to look 
 
 9. I add .DS_store to the back of the url, find the last part of the key.  This was an interesting experience, but I got another 50 points, thanks to writeups. yay...
 
+***************************************************************
+
 ## Problem 12 Web Exploitation (100 Points)
 
 The goal of this is to look at a website and see if you can exploit it to get the key somehow.
@@ -341,116 +359,9 @@ The goal of this is to look at a website and see if you can exploit it to get th
 
 3. I tried the username and password on the website, misspelled it once, then got it the second time by copy pasting it. Got the key and an easy 100 points!  Spending a semester working on a website really does teach you where vulnerabilities might be.
 
-***********************************
 
-Challenge Name: Cookies
+# Cryptopgraphy
 
-Category: Web Exploitation
-
-Point Value: 40
-
-Challenger: Destry
-
-Challenge Description: The link to a website is given and somehow you are meant to figure out the best "cookie". Presumably this has something to do with getting the flag.
-
-Steps Taken:
-
-    - Opened up the inspect console and poked around, found a tab for cookies, but there's only one called "name" and it's not telling me anything useful.
-    
-    - Tried using website as intended to see what would happen. Things that aren't cookies provoke a "that's not a valid cookie response". "Chocolate Chip" and "Peanut Butter" change the value of the aformentioned web cookie. "Chocolate Chip" makes it 1, and "Peanut Butter" makes it 5.
-    
-    - Poked around in the inspect tab for a while. Not much progress.
-    
-    - Searched online for help  found this page that gave the answer https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Cookies/Cookies.md
-    
-    - edited the value of the web cookie to 18 and the webpage displayed the flag.
-
-
-********************************************
-
-
-
-Challenge Name: Some Assembly Required 1
-
-Category: Web Exploitation
-
-Point Value: 70
-
-Challenger: Destry
-
-Challenge Description: There is a link to a webpage with a input that claims to be able to check if you have the correct flag.
-
-Steps Taken:
-    - Given the name, I opened inspect to see if I could find a webassembly script or something, there was in fact a js page that looked an awful lot like assembly.
-    
-    - I copied the code into a text editor and tried to make heads or tails of it, but I wasn't getting anywhere quickly.
-   
-    - Fortunately with a quick google search I found out I could enable webassembly support in google inspect and that allowed me to js format the code to make it more readable.
-    
-    - I spent a few hours trying to reverse engineer the code. I thought the flag was somehow encrypted in an array on the page 
-    
-    - in particular, I knew that this code: 
-    
-    const _0x478583 = -parseInt(_0x371ac6(0x1eb)) + parseInt(_0x371ac6(0x1ed)) + -parseInt(_0x371ac6(0x1db)) * -parseInt(_0x371ac6(0x1d9)) + -parseInt(_0x371ac6(0x1e2)) * -parseInt(_0x371ac6(0x1e3)) + -parseInt(_0x371ac6(0x1de)) * parseInt(_0x371ac6(0x1e0)) + parseInt(_0x371ac6(0x1d8)) * parseInt(_0x371ac6(0x1ea)) + -parseInt(_0x371ac6(0x1e5));
-
-    was being used to compare user input against what was in this array 
-
-    - const _0x402c = ['value', '2wfTpTR', 'instantiate', '275341bEPcme', 'innerHTML', '1195047NznhZg', '1qfevql', 'input', '1699808QuoWhA', 'Correct!', 'check_flag', 'Incorrect!', './JIFxzHyW8W', '23SMpAuA', '802698XOMSrr', 'charCodeAt', '474547vVoGDO', 'getElementById', 'instance', 'copy_char', '43591XxcWUl', '504454llVtzW', 'arrayBuffer', '2NIQmVj', 'result'];
-
-    
-    - I also knew that numbers like these _0x478583 were variables, and numbers like these 0x1eb were hex numbers in the high 400s. 
-    
-    -  this constant _0x371ac6 referenced a function that subtracted 470 from those big hex numbers, conveniently making all of them within the length of the array, and then returned the array item that the hex number corresponded to after the subtraction
-    
-    - using a web tool to simulate how parseInt() would work on the different strings, I came up with:
-    -       -504454 + 2 + -1195047 * -275341 + -nan * -23 + -1699808 * nan + nan * 43591 + -nan;
-    
-    - adding all that together doesn't work, it was all a dead end. So I looked online for help
-    
-    -  found this page explaining it https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Some_Assembly_Required_1.md
-    
-    -  what was described in that link was more than I had to do
-    
-    -  after you use an online deobfuscator you learn that the code sends the user input to another page for comparison.
-    
-    - by downloading the assembly code "script.wasm" at the link you can open it using less and the flag is at the bottom of the page
-    
-    - there was some other steps about converting the "script.wasm" into a .wat file to make it easier to read, but it doesn't do anything except make a blank file, and the flag is in "script.wasm" in plaintext anyways.
-
-
-********************************************
-
-
-Challenge Name: Most Cookies
-
-Category: Web Exploitation
-
-Point Value:150
-
-Challenger: Destry
-
-Challenge Description: You are given a link to a website and a link to the source code the server runs on. This challenge is very similar in looks to a previous challenge I did earlier called 'Cookies'.
-
-Steps Taken:
-
-    - looked at the server source code, I can read python but this is harder to decipher because I'm not used to programming python servers. I could tell they added more valid cookies though, and that the best cookie is picked at random, can't tell if it's randomized everytime or just per session.
-    
-    - Tried every single cookie brute force style, nothing (there were only 28)
-    
-    - opened inspect, there were three cookies; "_ga", "name", and "session".
-    
-    - Changing "name" like in the 'Cookies' challenge doesn't seem to do anything
-    
-    - "session" changes everytime, i figured maybe if I copied one of the sessions and pasted it in after the reset and tried brute forcing the cookie again, it wouldn't reset the random cookie and I would get it eventually, but that ultimately didn't work.
-    
-    - looked at the python code again, looks like it just gives you the key if it detects the session id is "admin", tried changing the session cookie value to "admin". That didn't work either.
-    
-    - looked up the solution. Found one by "cleibox" @ https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/Web%20Exploitation/Most%20Cookies/MostCookies.md Apparently I was on the right track for the most part about tricking it into think I was the "admin" but i needed to do some complicated stuff with flask encrypting and I ran out of time.
-    
-    - did not complete
-
-****************** Cryptography **************************
-## Cryptopgraphy
 ## Problem 13 The Numbers (50 Points)
 
 I have a image with some numbers on them and I have to figure out what the key is from the numbers. 
@@ -462,16 +373,7 @@ I have a image with some numbers on them and I have to figure out what the key i
 
 3. I compare them and get the key written down.  Easy 50 points.
 
-## Problem 14 Easy1 (100 Points)
 
-You are given a key and the encrypted flag and have to decrypt the flag.
-
-### Steps Taken
-1. Already I know that the first thing to do is read the table that we were given which shows how the cryptography pad works.
-
-2. I downloaded the table and look through it to see what is on it, and I have a pretty good idea of what is expected to be done.
-
-3. The next step is to start comparing the key to the garbled mess of letters that we are given, except I decide instead to go to the first website I find when I google, decrypt one time pad, go to this url: https://www.boxentriq.com/code-breaking/one-time-pad, enter the key and the encoded phrase and get the key.  Easy 100 points.
 
 ****************************************************
 
@@ -502,23 +404,9 @@ Steps Taken:
     - from this point forward I am going to have to implement a timer because im only 4 challenges deep, one of which I found out afterwards doesn't count towards my total, and Ive already spent nearly 15 hours on this project
 
 
+# Forensics
 
 
-
-**************** Forensics ****************************
-
-## Forensics
-
-## Problem 17 Packets Primer (100 Points)
-
-The goal is to look at a group of packets that are given to you and find the key inside of those packets.
-
-### Steps Taken
-1. It said that downloading wireshark is a good way to examine packets in the hint so I downloaded wireshark.
-
-2. I opened the download with wireshark and started to snoop around.  I had very little ideas of what I was looking for.  There were some phrases that I could see that were kinda telling me to look at specific packets.
-
-3. After looking around the packets I found the flag hidden in a set of bytes translated for me to look at and found a key.  100 points acquired.
 
 ## Problem 18 So Meta (150 points)
 
@@ -554,8 +442,7 @@ Steps Taken:
     
     - opened 'flag.txt'. The flag was in it.
 
-
-******************** Binary Exploitation ************************
+# Binary Exploitation
 
 
 Challenge Name: Stonks
@@ -613,10 +500,7 @@ Steps Taken:
     
     - Tried to read entry "0" in the program and I got the flag.
 
-
-*********************Reverse Engineering ***********************
-
-## Reverse Engineering
+# Reverse Engineering
 
 
 ## Problem 15 Vault-Door Training (50 Points)
@@ -641,30 +525,32 @@ The Goal of this problem is to take some code that is meant to help the person r
 
 3. I decided to decode the encrypted key with a Base64 decoder.  I used this website: https://www.base64decode.org/ and got the correct key.  I checked it with the program, it worked and I submitted it as a key.
  
- 
-**********************Hardest Difficulty**************************************************************
+# Hardest Difficulty
 
-Challenge Name: Wizardlike
+## Problem #21
 
-Category: Reverse Engineering
+#### Challenge Name: Wizardlike
 
-Point Value: 500
+#### Category: Reverse Engineering
 
-Challenger: Destry
+#### Point Value: 500
 
-Challenge Description: You are given an .exe file that is a game, and somehow you are supposed to get the key out of it.
+#### Challenger: Destry
 
-Steps Taken:
+#### Challenge Description: 
 
-    - The first step was playing the game, it's a dungeon crawler with no platforming or enemies. The map progressively reveals as you move around, this seems to be based on some sightline system, where the game keeps a track of what your character sees from where he is. The full gamemap is broken into smaller map segments, you can only access about 4 of them normally.
+You are given an .exe file that is a game, and somehow you are supposed to get the key out of it.
+
+#### Steps Taken:
+
+1. The first step was playing the game, it's a dungeon crawler with no platforming or enemies. The map progressively reveals as you move around, this seems to be based on some sightline system, where the game keeps a track of what your character sees from where he is. The full gamemap is broken into smaller map segments, you can only access about 4 of them normally.
     
-    - Threw it into a text editor, obviously the code is unintelligible (probably a compiled c program), but the maps are in strings of plaintext. They're not all immediately readable, I don't know if that's on purpose or accident but with a little resizing of the notepad window, and the use of wordwrapping, I can make out words and letters hidden in the map. 
-    
+2. Threw it into a text editor, obviously the code is unintelligible (probably a compiled c program), but the maps are in strings of plaintext. They're not all immediately readable, I don't know if that's on purpose or accident but with a little resizing of the notepad window, and the use of wordwrapping, I can make out words and letters hidden in the map. 
 
-    - I copied the maps into a seperate window and started trying to piece them together. I came up with flag  picoCTF{ur_4_w1z4rd8F4B04AE} 
+3. I copied the maps into a seperate window and started trying to piece them together. I came up with flag  picoCTF{ur_4_w1z4rd8F4B04AE} 
     
-    - "picoCTF{", "ur_4_w1z4rd" ,"E}" all came pre combined,  "8F4B04A" each came from an individaul map segment so I infered the order by playing the game and noting which four maps appeared in which order. On playing through, it looked like the first map was the second map segment (first map segment looks like it's just a buffer, it's an entire map area filled with walls)  and the second map segment was the third segment and so forth, so I applied that ordering to the key.
+4. "picoCTF{", "ur_4_w1z4rd" ,"E}" all came pre combined,  "8F4B04A" each came from an individaul map segment so I infered the order by playing the game and noting which four maps appeared in which order. On playing through, it looked like the first map was the second map segment (first map segment looks like it's just a buffer, it's an entire map area filled with walls)  and the second map segment was the third segment and so forth, so I applied that ordering to the key.
     
-    - It didn't work, either I got a character wrong (so I tried alternatives, like "O" instead of "0"), or I don't look closely enough (double checked the map, I didn't see anything I missed), or I got the ordering wrong. Brute forcing the combination would take too long, looks like I need to find a better solution.
+5. It didn't work, either I got a character wrong (so I tried alternatives, like "O" instead of "0"), or I don't look closely enough (double checked the map, I didn't see anything I missed), or I got the ordering wrong. Brute forcing the combination would take too long, looks like I need to find a better solution.
     
-    - looked online, "WhatTheFuzz" and "DD214" had a writeup @ https://ctftime.org/writeup/32801. Their solution was essentially the same as what I did, except they used "Ghidra" and some complicated stuff to extract the map, and used a python script to automate fixing and reading the map. I feel better that I did the correct solution with fewer tools, but still kind of salty because I don't know why my key doesn't work.
+6. looked online, "WhatTheFuzz" and "DD214" had a writeup @ https://ctftime.org/writeup/32801. Their solution was essentially the same as what I did, except they used "Ghidra" and some complicated stuff to extract the map, and used a python script to automate fixing and reading the map. I feel better that I did the correct solution with fewer tools, but still kind of salty because I don't know why my key doesn't work.

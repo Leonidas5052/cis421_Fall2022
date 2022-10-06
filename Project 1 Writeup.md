@@ -2,6 +2,8 @@
 
 We both worked on this project independently for a while before teaming up so we did more challenges than we needed to do. The challenges in this file are only those we needed to complete the project. Challenges that didn't make the cut are in a "bonus.md" in this repository.
 
+I didn't count how many are Ethan's and how many are mine, we both did more than half but this file has only the most detailed ones. Point being, we both did more than half of the required work even if these 21 are more one of us than the other.
+
 
 # General Skills
 

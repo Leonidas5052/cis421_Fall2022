@@ -294,7 +294,7 @@ The goal is to go shopping at a flag store.  I don't really know what that means
 #### Challenge Description:
 The goal is to take a very long list of possible passwords and do one of two things.  Sit there for an entire year until you guess the right password, or you use Linux commands to get the password.
 
-### Steps Taken:
+#### Steps Taken:
 
 1. The first thing I did was right-click, copy link address, wget the files.
 
@@ -327,7 +327,7 @@ The goal is to take a very long list of possible passwords and do one of two thi
 
 The goal of this problem is to be able to look around a website and try to look around and find the key for the website.
 
-### Steps Taken:
+#### Steps Taken:
 
 1. The first thing that I looked at was the source code.  It is split into three files.  The first is an html file which hosts the main bulk of the website code.  The second is some javascript which has some formatting in it.  The third is some css which makes the website look nice.
 
@@ -347,11 +347,23 @@ The goal of this problem is to be able to look around a website and try to look 
 
 9. I add .DS_store to the back of the url, find the last part of the key.  This was an interesting experience, but I got another 50 points, thanks to writeups. yay...
 
-***************************************************************
+***********************************************
 
-## Problem 12 Web Exploitation (100 Points)
+## Problem #12
+
+#### Challenge Name: Local Authority
+
+#### Category: Web Exploitation
+
+#### Point Value: 100
+
+#### Challenger: Ethan
+
+#### Challenge Description: 
 
 The goal of this is to look at a website and see if you can exploit it to get the key somehow.
+
+#### Steps Taken:
 
 1. The first thing I did was open the website and look around the source code.  There were hidden files that I could not look at and I wasn't sure how to access them, one was called login.php, but I could not access any of them so I ignored them.
 
@@ -362,170 +374,232 @@ The goal of this is to look at a website and see if you can exploit it to get th
 
 # Cryptopgraphy
 
-## Problem 13 The Numbers (50 Points)
+## Problem #13
+
+#### Challenge Name: The Numbers
+
+#### Category: Cryptopgraphy
+
+#### Point Value: 50
+
+#### Challenger: Ethan
+
+#### Challenge Description: 
 
 I have a image with some numbers on them and I have to figure out what the key is from the numbers. 
 
-### Steps Taken
+#### Steps Taken
+
 1. The first thing I do is open the file that they gave use to download.  The numbers range from 1 to around 20.  That basically tells me what I have to do to solve this.
 
 2. I take out a notepad and write the alphabet down and number each letter to figure out what is what.
 
 3. I compare them and get the key written down.  Easy 50 points.
 
-
-
 ****************************************************
 
-Challenge Name: Pixelated
+## Problem #14
 
-Category: Cryptography
+#### Challenge Name: Pixelated
 
-Point Value: 100
+#### Category: Cryptography
 
-Challenger: Destry
+#### Point Value: 100
 
-Challenge Description: Two images are given. Somehow you are supposed to get a flag from them.
+#### Challenger: Destry
 
-Steps Taken:
+#### Challenge Description: 
+Two images are given. Somehow you are supposed to get a flag from them.
 
-    - Downloaded both to my local device. Opened them both with a text editor and did a quick search for 'picoctf' but nothing came up.
+#### Steps Taken:
+
+1. Downloaded both to my local device. Opened them both with a text editor and did a quick search for 'picoctf' but nothing came up.
     
-    - opened them both with Gimp and tried various thing like stacking them and merging them, or stacking them and making them semitransparent, rotating them and merging them. Nothing worked.
+2. Opened them both with Gimp and tried various thing like stacking them and merging them, or stacking them and making them semitransparent, rotating them and merging them. Nothing worked.
     
-    - finally had to look up the solution on https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Pixelated.md
+3. Finally had to look up the solution on https://github.com/Dvd848/CTFs/blob/master/2021_picoCTF/Pixelated.md
     
-    - supposedly you are supposed to convert both images into arrays and add them together into a single image.
+4. supposedly you are supposed to convert both images into arrays and add them together into a single image.
     
-    - didn't matter anyways, I spent two hours trying to figure out how to open up images in the web shell and nothing was working so the solution isn't helping me.
+5. didn't matter anyways, I spent two hours trying to figure out how to open up images in the web shell and nothing was working so the solution isn't helping me.
     
-    - opened the outputted combined images with less and i'm not even sure it's a valid png file when compared to the other two.
+6. opened the outputted combined images with less and i'm not even sure it's a valid png file when compared to the other two.
     
-    - from this point forward I am going to have to implement a timer because im only 4 challenges deep, one of which I found out afterwards doesn't count towards my total, and Ive already spent nearly 15 hours on this project
+7. from this point forward I am going to have to implement a timer because im only 4 challenges deep, one of which I found out afterwards doesn't count towards my total, and Ive already spent nearly 15 hours on this project
 
 
 # Forensics
 
+## Problem #15
 
+#### Challenge Name: So Meta
 
-## Problem 18 So Meta (150 points)
+#### Category: Forensics
+
+#### Point Value: 150
+
+#### Challenger: Ethan
+
+#### Challenge Description:
 
 I was given an image and have to find the key hidden in the image somewhere.  The image is a bunch of half circles and circles.
 
-### Steps Taken
+#### Steps Taken
+
 1. I watch too many fnaf theory videos.  The first step that I decided to do for the image was turn it into a text file.  I used control-f to search for pico and at the end of the new text file, I found the key.  Easy 150 points.
 
 *****************************************
-Challenge Name: Matryoshka doll
+## Problem #16
 
-Category: Forensics
+#### Challenge Name: Matryoshka doll
 
-Point Value: 30
+#### Category: Forensics
 
-Challenger: Destry
+#### Point Value: 30
 
-Challenge Description: You are given an image of a Matryoshka doll and have to find some way to get a flag from it.
+#### Challenger: Destry
 
-Steps Taken:
+#### Challenge Description: 
 
-    - Downloaded the image gave it a look in windows photos, nothing out of the ordinary.
+You are given an image of a Matryoshka doll and have to find some way to get a flag from it.
+
+#### Steps Taken:
+
+1. Downloaded the image gave it a look in windows photos, nothing out of the ordinary.
     
-    - Found an online metadata viewer @ https://www.metadata2go.com/ looked at the metadata for a while, nothing out of the ordinary except even though the file had the jpg extension the metadata viewer said it was png.
+2. Found an online metadata viewer @ https://www.metadata2go.com/ looked at the metadata for a while, nothing out of the ordinary except even though the file had the jpg extension the metadata viewer said it was png.
     
-    - Changed the extension name to png and opened it again in windows photos, nothing changed.
+3. Changed the extension name to png and opened it again in windows photos, nothing changed.
     
-    - looked at the image in notepad, searched for the word "pico" but also nothing.
+4. looked at the image in notepad, searched for the word "pico" but also nothing.
     
-    - looked up the solution. Found one by 'ZeroDayTea' and 'Killer Queen' @ https://ctftime.org/writeup/28156
+5. looked up the solution. Found one by 'ZeroDayTea' and 'Killer Queen' @ https://ctftime.org/writeup/28156
     
-    - The solution involved using binwalk to extract compressed files hidden in the image. You would extract the file, descend one level into the directory where there was another image with a file compressed inside of it. I repeated the process four times til i got to 'flag.txt'
+6. The solution involved using binwalk to extract compressed files hidden in the image. You would extract the file, descend one level into the directory where there was another image with a file compressed inside of it. I repeated the process four times til i got to 'flag.txt'
     
-    - opened 'flag.txt'. The flag was in it.
+7. opened 'flag.txt'. The flag was in it.
 
 # Binary Exploitation
 
+## Problem 17
 
-Challenge Name: Stonks
+#### Challenge Name: Stonks
 
-Category: Binary Exploitation
+#### Category: Binary Exploitation
 
-Point Value: 20
+#### Point Value: 20
 
-Challenger: Destry
+#### Challenger: Destry
 
-Challenge Description: You are given a server to connect to with nc and a download for C code and told to exploit it somehow to get the flag.
+#### Challenge Description:
+You are given a server to connect to with nc and a download for C code and told to exploit it somehow to get the flag.
 
-Steps Taken:
+#### Steps Taken:
 
-    - Looked at the code first, looked like there is a file on the server with the key that gets read into memory when the program is loaded up.
+1. Looked at the code first, looked like there is a file on the server with the key that gets read into memory when the program is loaded up.
 
-    - Opened a connection with the webserver, first prompt asks if you want to buy stocks, or look at your stocks, i chose to look at my stocks. I had none, and the program ended.
+2. Opened a connection with the webserver, first prompt asks if you want to buy stocks, or look at your stocks, i chose to look at my stocks. I had none, and the program ended.
 
-    - Tried buying stocks, no matter what you input it just spits out a ton of random stocks and ends the program. There is no account memory, so nothing I do carries over to the next session.
-    - user buffer is 301 memory addresses long, tried sending it +300 characters. Same output as usual, it just ignores everything past the first 301 characters.
-    - Looked up a write up. Found one by " Abraxus" and  "kernelarmy" @ https://ctftime.org/writeup/28935
-    - They used a script to do it, but what I ended up doing was sending a ton of "%x" and it dumped the memory as hex code
-    - threw the hex code into an online decoder @ https://onlinestringtools.com/convert-hexadecimal-to-string
-    - had to manually remove some of the useless values and invert the characters in the flag, but otherwise the flag worked.
+3. Tried buying stocks, no matter what you input it just spits out a ton of random stocks and ends the program. There is no account memory, so nothing I do carries over to the next session.
+
+4. user buffer is 301 memory addresses long, tried sending it +300 characters. Same output as usual, it just ignores everything past the first 301 characters.
+
+5. Looked up a write up. Found one by " Abraxus" and  "kernelarmy" @ https://ctftime.org/writeup/28935
+
+6. They used a script to do it, but what I ended up doing was sending a ton of "%x" and it dumped the memory as hex code
+    
+7. threw the hex code into an online decoder @ https://onlinestringtools.com/convert-hexadecimal-to-string
+
+8. had to manually remove some of the useless values and invert the characters in the flag, but otherwise the flag worked.
 
 
 ********************************************
 
+## Problem 18
 
-Challenge Name: basic-file-exploit
+#### Challenge Name: basic-file-exploit
 
-Category: Binary Exploitation
+#### Category: Binary Exploitation
 
-Point Value: 100
+#### Point Value: 100
 
-Challenger: Destry
+#### Challenger: Destry
 
-Challenge Description: Given the source code of a file with the flag redacted, and a netcat connection, exploit it to gain the flag.
+#### Challenge Description:
+Given the source code of a file with the flag redacted, and a netcat connection, exploit it to gain the flag.
 
-Steps Taken:
+#### Steps Taken:
 
-    - looked at the source code first, searched for "flag"
+1. looked at the source code first, searched for "flag"
     
-    - found a section of code that essentially said if the user entered a "0" under certain circumstances the program would return the flag.
+3. found a section of code that essentially said if the user entered a "0" under certain circumstances the program would return the flag.
     
-    - if ((entry_number = strtol(entry, NULL, 10)) == 0) {
+```
+    
+    if ((entry_number = strtol(entry, NULL, 10)) == 0) {
     puts(flag);
     fseek(stdin, 0, SEEK_END);
     exit(0);
-  }
+    }
     
-    - Played with program a bit, you can enter data into a database, read data out of the database, or exit the program.
+```
     
-    - Entering data doesn't allow you to use 0 except in a string to be saved.
+4. Played with program a bit, you can enter data into a database, read data out of the database, or exit the program.
     
-    - Tried to read entry "0" in the program and I got the flag.
+5. Entering data doesn't allow you to use 0 except in a string to be saved.
+    
+6. Tried to read entry "0" in the program and I got the flag.
+
 
 # Reverse Engineering
 
+## Problem 19
 
-## Problem 15 Vault-Door Training (50 Points)
+#### Challenge Name: Vault-Door Training
+
+#### Category: Reverse Engineering
+
+#### Point Value: 50
+
+#### Challenger: Ethan
+
+#### Challenge Description:
 
 You are trying to break into a labratory and you need the passwords that let you through each door.  However, the passwords are not known, only one person managed to get anything, and it was the source code to the doors.  I need to look through the source code to figure out the password.
 
 ### Steps Taken
+
 1. I downloaded the code that was given to me.  It was a simple program that would return the key if I found the password.  I think.
 
 2. I dove into the source code and looked to find the password.  I find it.  So I back out, compile the program and try to input the password.  It does not work. I have no idea why.
 
 3. I say forget it, look back through the code and realize that the password is the key that the program will return to you.  I take the password, copy picoCTF{}, paste the password between the curly braces, and hit enter.  50 points gained.
 
-## Problem 16 Safe Opener (100 Points)
+*********************************
+
+## Problem 20
+
+#### Challenge Name: Safe Opener 
+
+#### Category: Reverse Engineering
+
+#### Point Value: 100
+
+#### Challenger: Ethan
+
+#### Challenge Description:
 
 The Goal of this problem is to take some code that is meant to help the person remember their password.  It shows if you enter the correct password so it checks if you have the right password.
 
 ### Steps Taken
+
 1. I downloaded the code that was given.  It was a Java program so I tried to use less to see the source code.
 
 2. In the source code I found an encrypted key in 64 bit.  I do not really know why it would be in 64 bit, but I copied it down and saved it for later.  I later found that it will take your entered password, encrypt it and check if it works the way it should.
 
 3. I decided to decode the encrypted key with a Base64 decoder.  I used this website: https://www.base64decode.org/ and got the correct key.  I checked it with the program, it worked and I submitted it as a key.
  
-# Hardest Difficulty
+# !!!!!!!Hardest Difficulty!!!!!!!!
 
 ## Problem #21
 

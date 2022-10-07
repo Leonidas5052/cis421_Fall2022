@@ -123,7 +123,7 @@ The goal of this project is to use Linux commands to move between the directorie
 
 1. I attempted to log into the ctf-player instance.  I first did it through the initial login space.
 
-2. I then looked up a guide online to see what it was that I was not doing right, then saw that they used the ssh command to log in.  Oops...
+2. I then looked up a guide online to see what it was that I was not doing right, found this site: https://github.com/vivian-dai/PicoCTF2021-Writeup/blob/main/General%20Skills/Magikarp%20Ground%20Mission/Magikarp%20Ground%20Mission.md, then saw that they used the ssh command to log in.  Oops...
 
 3. I used the ssh command and entered the password that was given to me.  This brought me to a place where I was thrown into the middle of a directory.
 
@@ -182,9 +182,9 @@ The goal is to be able to convert hex to ascii.  I learned that I do not know ho
 
 1. I had a hex code. 0x70.  Now I needed to change it to what it represented.
 
-2. I looked it up and got p so I entered, "picoCTF(p)"...  I was so confused when it was wrong.
+2. I looked it up here: https://bytetool.web.app/en/ascii/code/0x70/ and got p so I entered, "picoCTF(p)"...  I was so confused when it was wrong.
 
-3. I then struggled for about 5 minutes and looked up a guide to realize that I entered the flag in the wrong format and that is why I got it wrong...
+3. I then struggled for about 5 minutes and looked up a guide here: https://cybercrack.net/write-ups/picoctf-2019/general-skills-picoctf-2019/lets-warm-up/  to realize that I entered the flag in the wrong format and that is why I got it wrong...
 
 4. I learned how echo -e worked though.  I did echo -e "\x70" to figure out the ascii code.  It was p
 
@@ -341,7 +341,7 @@ The goal of this problem is to be able to look around a website and try to look 
 
 5. I tried to use wget on the website link, but that only got me the index.html file which I already had access too.
 
-6. I looked up how to stop google from indexing a webpage and found robots.txt.  I do not know how it works so I looked up a writeup from Hayden Housen and apparently I just add it to the end of a website url.  Why.
+6. I looked up how to stop google from indexing a webpage and found robots.txt.  I do not know how it works so I looked up a writeup from Hayden Housen and apparently I just add it to the end of a website url.  Why.  Link: https://picoctf2021.haydenhousen.com/web-exploitation/scavenger-hunt
 
 7. From the website that we found we are on an apache server.  The heck does that mean.  Back to the writeup.  The heck is .htaccess.  Okay, a google search later, .htaccess is a second way to access directories of an apache server.  Good to know. Now to enter that in... and now it's talking about macs.  Fun.
 
